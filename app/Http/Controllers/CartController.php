@@ -8,33 +8,40 @@ use Cart;
 
 class CartController extends Controller
 {
-    public function addCart($id){
-        $product = Product::findOrFail( $id );
+    public function addToCartAjax(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
 
-        $cart = session()->get('cart',[]);
-        if(isset($cart[$id])){
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
             $cart[$id]['quantity']++;
-        }
-        else{
-
+        } else {
             $cart[$id] = [
                 'product_name' => $product->product_name,
-                'image'=>$product->product_image,
-                'price'=> $product->full_price,
-                'quantity'=>1,
-                'options'=>[
-                    'half_price'=>$product->half_price,
+                'image' => $product->product_image,
+                'price' => $product->full_price,
+                'quantity' => 1,
+                'options' => [
+                    'half_price' => $product->half_price,
                 ]
             ];
         }
-
-        
         session()->put('cart', $cart);
-        return redirect()->back()->with('sms','Thêm vào giỏ hàng thành công!');
 
+        // Tính toán số lượng sản phẩm trong giỏ hàng
+        $cartCount = count($cart);
+
+        return response()->json([
+            'success' => true, 
+            'message' => 'Sản phẩm đã được thêm vào giỏ hàng!',
+            'cart_count' => $cartCount // Trả về số lượng sản phẩm trong giỏ hàng
+        ]);
     }
 
+
+
     public function show(){
+        $this->shareSettingsAndContactSet();
         return view('FrontEnd.cart.show');
     }
 

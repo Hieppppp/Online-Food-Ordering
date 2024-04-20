@@ -1,13 +1,14 @@
 $(document).ready(function(){
     // Xem trước hình ảnh
     $("#profile_image").change(function(){
-        let reader = new FileReader();
-
-        reader.onload = function(e) {
-            $("#customerProfilePicture").attr('src', e.target.result);
-        };
-        
-        reader.readAsDataURL(this.files[0]);
+        let file = this.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $("#customerProfilePicture").attr('src', e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
     });
 
     $("#profile_setup_frm").submit(function(e){

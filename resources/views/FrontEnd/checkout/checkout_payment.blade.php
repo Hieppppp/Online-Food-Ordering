@@ -11,7 +11,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-muted text-center">Dear {{ Session::get('customer_name') }}</h3>
+                        <h3 class="text-muted text-center">Kính Gửi: {{ Session::get('customer_name') }}</h3>
                         <h4 class="text-center">Chọn phương pháp thanh toán</h4>
                     </div>
                     <div class="card-body">
@@ -20,17 +20,17 @@
                             <div class="form-check mb-3">
                                 <input class="form-check-input" type="radio" name="payment_type" id="cashOnDelivery" value="Cash">
                                 <label class="form-check-label" for="cashOnDelivery">
-                                    Cash On Delivery
+                                    Thanh Toán Khi Giao Hàng
                                 </label>
                             </div>
                             <div class="form-check mb-3">
                                 <input class="form-check-input" type="radio" name="payment_type" id="stripe" value="Stripe">
                                 <label class="form-check-label" for="stripe">
-                                    Stripe
+                                    Thanh Toán Bằng Thẻ
                                 </label>
                             </div>
                             <div class="text-center">
-                                <button type="submit" name="btn" class="btn btn-success">Confirm Order</button>
+                                <button type="submit" name="btn" class="btn btn-success">Xác Nhận</button>
                             </div>
                         </form>
                     </div>

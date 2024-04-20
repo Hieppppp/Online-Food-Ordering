@@ -1,6 +1,6 @@
 @extends('BackEnd.admin.home')
 @section('title')
-    Manage Category
+    Quản Lý Danh Mục Loại Sản Phẩm
 @endsection
 @section('content')
     <!-- Thông báo -->
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <h4>Category</h4>
+                <h4>Loại Sản Phẩm</h4>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb" >
@@ -22,7 +22,7 @@
                         <a href="{{url('/')}}">Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        Manage Category
+                        Quản Lý Danh Sách Loại Sản Phẩm
                     </li>
 
                 </ol>
@@ -35,17 +35,17 @@
 
     <div class="card my-5">
         <div class="card-header">
-            <h3 class="card-title">Manage Category</h3>
+            <h3 class="card-title">Quản Lý Danh Sách Loại Sản Phẩm</h3>
         </div>
         <div class="card-body">
             <table id="" class="table table-hover table-striped text-center">
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Category Name</th>
-                        <th>Order Number</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Tên Danh Mục</th>
+                        <th>Số Lượng</th>
+                        <th>Trạng Thái</th>
+                        <th>Chức Năng</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,9 +57,9 @@
                         <td>{{$item->order_number}}</td>
                         <td>
                             @if($item->category_status == 1)
-                                <span style="color: green;">Active</span>
+                                <span style="color: green;">Hoạt động</span>
                             @else
-                                <span style="color: red;">Inactive</span>
+                                <span style="color: red;">Không hoạt động</span>
                             @endif
                         </td>
                         <td>
@@ -86,24 +86,24 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content bg-white">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Cập Nhập Danh Mục Loại Sản Phẩm</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form action="{{route('cate_update')}}" method="post">
                                         @csrf
                                         <div class="form-group">
-                                            <label>Category Name</label>
+                                            <label>Tên Danh Mục</label>
                                             <input type="text" class="form-control" name="category_name" value="{{$item->category_name}}">
                                             <input type="hidden" class="form-control" name="category_id" value="{{$item->category_id}}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Order Number</label>
+                                            <label>Số Lượng</label>
                                             <input type="number" class="form-control" name="order_number" value="{{$item->order_number}}">
                                             
                                         </div>
                                         <div class="form-group">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                                             <input type="submit" name="btn" class="btn btn-primary" value="Update">
                                         </div>
                                     </form>

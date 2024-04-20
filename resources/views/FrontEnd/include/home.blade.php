@@ -3,21 +3,65 @@
 	Home
 @endsection
 @section('content')
-        @if(Session::get('sms'))
-            <div class="alert-container">
-                <div id="autoCloseAlert" class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>{{Session::get('sms')}}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert-container"></div>
+        <div class="container-fluid featurs py-5">
+            <div class="container py-5">
+				<h2>Dịch Vụ</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                                <i class="fas fa-car-side fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>Miễn phí vận chuyển</h5>
+                                <p class="mb-0">Free on order over $300</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                                <i class="fas fa-user-shield fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>Thanh toán bảo mật</h5>
+                                <p class="mb-0">100% thanh toán bảo mật</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                                <i class="fas fa-exchange-alt fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>Hoàn trả trong 30 ngày</h5>
+                                <p class="mb-0">Hoàn trả trong 30 ngày</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                                <i class="fa fa-phone-alt fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>Hộ trợ 24/7</h5>
+                                <p class="mb-0">Hỗ trợ nhanh chóng mọi lúc</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        @endif 
+        </div>
 		<!-- Fruits Shop Start-->
 		<div class="container-fluid fruite py-5">
             <div class="container py-5">
                 <div class="tab-class text-center">
-                    <div class="row g-4">
-                        <div class="col-lg-3 text-start">
-                            <h1>All Category</h1>
+                    <div class="row g-3">
+                        <div class="col-lg-4 text-start">
+                            <h1>Danh Mục Loại Sản Phẩm</h1>
                         </div>
                         <div class="col-lg-8 text-end">
                             <ul class="nav nav-pills d-inline-flex text-center mb-5">
@@ -50,7 +94,7 @@
                                                                 <p>{!! Str::limit($item->product_detail,60) !!}</p>
                                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                                     <p class="text-dark fs-5 fw-bold mb-0">{{$item->full_price}}.000</p>
-                                                                    <a href="{{route('add_to_cart',$item->product_id)}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Chọn mua</a>
+                                                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart" data-product-id="{{$item->product_id}}"><i class="fa fa-shopping-bag me-2 text-primary"></i> Chọn mua</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -78,7 +122,7 @@
                                                     <p>{!! Str::limit($item->product_detail,60) !!}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">{{$item->full_price}}.000</p>
-                                                        <a href="{{route('add_to_cart',$item->product_id)}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Chọn mua</a>
+                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart" data-product-id="{{$item->product_id}}"><i class="fa fa-shopping-bag me-2 text-primary"></i> Chọn mua</a>
                                                     </div>
                                                 </div>
                                             </div>

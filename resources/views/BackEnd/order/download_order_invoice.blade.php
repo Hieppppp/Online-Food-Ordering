@@ -106,14 +106,14 @@
                         <h3 class="text-dark mb-1">PuppyFat</h3>
                         <div>29 Hàng Trống, quận Hoàn Kiếm, Hà Nội</div>
                         <div>Email: foodonline@gmail.com</div>
-                        <div>Phone: +84 9897 989 989</div>
+                        <div>SĐT: +84 9897 989 989</div>
                     </div>
                     <div class="col-sm-6">
                         <h5 class="mb-3">To:</h5>
                         <h3 class="text-dark mb-1">{{$customer->name}}</h3>
-                        <div>Address: {{$shipping->address}}</div>
+                        <div>Địa Chỉ: {{$shipping->address}}</div>
                         <div>Email: {{$customer->email}}</div>
-                        <div>Phone: +84 {{$customer->phone_num}}</div>
+                        <div>SĐT: +84 {{$customer->phone_num}}</div>
                     </div>
                 </div>
                 <div class="table-responsive">

@@ -5,22 +5,22 @@
                 <td>Dear <strong>{{$name}}</strong></td>
             </tr>
             <tr>
-                <td>Your Email Address <strong>{{$email}}</strong></td>
+                <td>Địa Chỉ Email Của Bạn: <strong>{{$email}}</strong></td>
             </tr>
             <tr>
-                <td>Your Phone Number <strong>{{$phone_num}}</strong></td>
+                <td>Số Điện Thoại Của Bạn: <strong>{{$phone_num}}</strong></td>
             </tr>
             <tr>
-                <td>Thanks for joining our community</td>
+                <td>Cảm ơn bạn đã tham gia mua sản phẩm của chúng tôi</td>
             </tr>
             <tr>
-                <td>Stay Connected us</td>
+                <td>Luôn kết nối với chúng tôi!</td>
             </tr>
             <tr>
-                <td>Visit this link to shop more: <a href="{{url('/')}}">Click to here</a></td>
+                <td>Truy cập liên kết này để mua sắm nhiều hơn: <a href="{{url('/')}}">Bấm Vào Đây</a></td>
             </tr>
             <tr>
-                <td>Regards,</td>
+                <td>Trân Trọng,</td>
             </tr>
             <tr>
                 <td>Staple Food Team</td>

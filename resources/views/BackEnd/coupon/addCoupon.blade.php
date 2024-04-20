@@ -1,7 +1,7 @@
 @extends('BackEnd.admin.home')
 
 @section('title')
-    Coupon Page
+    Trang Phiếu Mua Hàng
 @endsection
 @section('content')
     <div class="container">
@@ -15,49 +15,49 @@
                 @endif
                 <div class="card">
                     <div class="card-header text-center" style="font-size: 30px;">
-                        Coupon
+                        Phiếu Mua Hàng
                     </div>
                     <div class="card-body">
                         <form action="{{route('coupon_save')}}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="fw-bold">Code Name</label>
+                                    <label class="fw-bold">Mã Phiếu</label>
                                     <input type="text" class="form-control" name="coupon_code">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="fw-bold">Coupon Value</label>
+                                    <label class="fw-bold">Giá Trị Phiếu Giảm Giá</label>
                                     <input type="text" class="form-control" name="coupon_value">
                                 </div>
                                 <div class="form-group">
-                                    <label class="fw-bold">Cart Min value</label>
+                                    <label class="fw-bold">Giá Trị Tối Thiểu</label>
                                     <input type="text" class="form-control" name="cart_min_value">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="fw-bold">Expired Date</label>
+                                    <label class="fw-bold">Ngày Hết Hạn</label>
                                     <input type="date" class="form-control" name="expired_on">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="fw-bold">Added On</label>
+                                    <label class="fw-bold">Ngày Nhập</label>
                                     <input type="date" class="form-control" name="added_on">
                                 </div>
                                 <div class="form-group">
-                                    <label class="fw-bold">Select Coupon Type</label>
+                                    <label class="fw-bold">Chọn Loại Phiếu Giảm Giá</label>
                                     <div class="radio p-2">
                                         <input type="radio" name="coupon_type" value="1"> Percentage
                                         <input type="radio" name="coupon_type" value="0"> Fixed
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="fw-bold">Status</label>
+                                    <label class="fw-bold">Trạng Thái</label>
                                     <div class="radio p-2">
-                                        <input type="radio" name="coupon_status" value="1"> Active
-                                        <input type="radio" name="coupon_status" value="0"> Inactive
+                                        <input type="radio" name="coupon_status" value="1"> Hoạt động
+                                        <input type="radio" name="coupon_status" value="0"> Không hoạt động
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3 mx-auto text-center">
                                             <button type="submit" name="btn" class="btn btn-outline-primary btn-block">
-                                                Coupon Add
+                                                Thêm
                                             </button>
                                         </div>
                                     </div>

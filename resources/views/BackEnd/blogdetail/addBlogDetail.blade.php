@@ -15,7 +15,7 @@
                 @endif
                 <div class="card">
                     <div class="card-header text-center" style="font-size: 30px;">
-                        Blog
+                        Chi Tiết Bài Viết
                     </div>
                     <div class="card-body">
                         <form action="{{route('blogdetail_save')}}" method="post" enctype="multipart/form-data">
@@ -54,8 +54,8 @@
                                 <div class="form-group col-md-6">
                                     <label class="fw-bold">Trạng Thái</label>
                                     <div class="radio p-2">
-                                        <input type="radio" name="blogdetail_status" value="1"> Hoạt Động
-                                        <input type="radio" name="blogdetail_status" value="0"> Không Hoạt Động
+                                        <input type="radio" name="blogdetail_status" value="1"> Hoạt động
+                                        <input type="radio" name="blogdetail_status" value="0"> Không hoạt động
                                     </div>
                                 </div>
                                 <div class="row">

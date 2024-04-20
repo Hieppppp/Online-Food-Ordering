@@ -9,6 +9,7 @@ use Stripe\Charge;
 class StripeController extends Controller
 {
     public function handleGet(){
+        $this->shareSettingsAndContactSet();
         return view('FrontEnd.checkout.stripe');
     }
 

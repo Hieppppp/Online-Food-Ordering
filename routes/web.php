@@ -12,9 +12,11 @@ use App\http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\FeeShipController;
 use App\Http\Controllers\HistoryPuscherController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StripeController;
 use League\CommonMark\Parser\Block\BlockContinue;
 use PHPUnit\Framework\Attributes\Group;
@@ -37,10 +39,11 @@ Route::get('/', function () {
 Route::get('/home',[FrontEndController::class,'index'])->name('home');
 Route::get('/category/show_product/show/',[FrontEndController::class,'show_product'])->name('show_product');
 Route::get('/contact/show/',[FrontEndController::class,'contact'])->name('contact');
+Route::get('/blog/show/',[FrontEndController::class,'blog'])->name('blog');
 Route::get('/category/product/show/{category_id}',[FrontEndController::class,'show'])->name('category_product');
 
 // =============================== Cart =========================//
-Route::get('/add/cart/{product_id}',[CartController::class,'addCart'])->name('add_to_cart');
+Route::post('/add-to-cart/{id}', [CartController::class, 'addToCartAjax'])->name('add_to_cart_ajax');
 Route::get('/cart/show',[CartController::class,'show'])->name('cart_show');
 Route::get('/cart/remove/{id}',[CartController::class,'remove'])->name('remove_cart');
 Route::post('/cart/update/{id}',[CartController::class,'update'])->name('update_cart');
@@ -108,6 +111,18 @@ Route::prefix('delivery')->group(function (){
     Route::post('/update', [DeliveryController::class,'update'])->name('delivery_update');
 });
 
+//Fee Ship
+Route::prefix('feeship')->group(function(){
+    Route::get('/manage', [FeeShipController::class,'index'])->name('manage_feeship');
+    Route::post('/select-feeship', [FeeShipController::class,'select_feeship'])->name('select_feeship');
+    Route::post('/insert-feeship', [FeeShipController::class,'insert'])->name('insert_feeship');
+    Route::post('/select-fee', [FeeShipController::class,'manage'])->name('select_fee');
+    Route::post('/update-feeship', [FeeShipController::class,'update'])->name('update_feeship');
+
+
+
+});
+
 //Coupon
 Route::prefix('coupon')->group(function (){
 
@@ -144,7 +159,7 @@ Route::prefix('order')->group(function (){
     Route::get('/inactive/{order_id}', [OrderController::class,'inactive'])->name('inactive_order');
 });
 
-
+//Blog
 Route::prefix('blog')->group(function(){
 
     Route::get('/add',[BlogController::class,'index'])->name('show_blog_table');
@@ -156,6 +171,7 @@ Route::prefix('blog')->group(function(){
     Route::post('/update', [BlogController::class, 'update'])->name('blog_update');
 });
 
+//Blog Detail
 Route::prefix('blogdetail')->group(function(){
     Route::get('/add', [BlogDetailController::class,'index'])->name('show_blogdetail_table');
     Route::post('/save', [BlogDetailController::class,'save'])->name('blogdetail_save');
@@ -164,6 +180,13 @@ Route::prefix('blogdetail')->group(function(){
     Route::get('/inactive/{blogdetail_id}', [BlogDetailController::class,'inactive'])->name('inactive_blogdetail');
     Route::get('/delete/{blogdetail_id}', [BlogDetailController::class,'delete'])->name('blogdetail_delete');
     Route::post('/update', [BlogDetailController::class,'update'])->name('blogdetail_update');
+});
+
+//Setting
+Route::prefix('setting')->group(function(){
+    Route::get('/general/settings',[SettingController::class,'generalsetting'])->name('setting_general');
+    Route::post('/update/settings', [SettingController::class,'updatesetting'])->name('settings_update');
+    Route::post('/update/contactsetting', [SettingController::class,'updatecontactsetting'])->name('contactsettings_update');
 });
 
 Auth::routes();

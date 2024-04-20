@@ -1,6 +1,6 @@
 @extends('BackEnd.admin.home')
 @section('title')
-    Order Detail
+    Chi Tiết Đơn Đặt Hàng
 @endsection
 @section('content')
     <!-- @if(Session::get('sms'))
@@ -12,21 +12,21 @@
     <!-- Kết thúc thông báo -->
     <div class="card my-5">
         <div class="card-header">
-            <h3 class="card-title">Order</h3>
+            <h3 class="card-title">Đơn Đặt Hàng</h3>
         </div>
         <div class="card-body" style="height: 500px; overflow-y:scroll;">
             <table id="" class="table table-hover table-striped text-center ">
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Customer Name</th>
-                        <th>Order Total</th>
-                        <th>Order Status</th>
-                        <th>Order Date</th>
-                        <th>Payment Type</th>
-                        <th>Payment Status</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Khách Hàng</th>
+                        <th>Tổng Đơn Hàng</th>
+                        <th>Trạng Thái</th>
+                        <th>Ngày Đặt</th>
+                        <th>Thanh Toán</th>
+                        <th>Trạng Thái Thanh Toán</th>
+                        <th>Trạng Thái</th>
+                        <th>Chức Năng</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -74,9 +74,9 @@
                                 </a>
                             @endif
 
-                            <a type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="{{--#edit{{$item->product_id}}--}}">
+                            <!-- <a type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="{{--#edit{{$item->product_id}}--}}">
                                 <i class="fas fa-edit" title="Click to edit"></i>
-                            </a>
+                            </a> -->
                             <a class="btn btn-outline-danger mt-1" id="delete" href="{{route('delete_order',['order_id'=>$order->order_id])}}">
                                 <i class="fas fa-trash"></i>
                             </a>

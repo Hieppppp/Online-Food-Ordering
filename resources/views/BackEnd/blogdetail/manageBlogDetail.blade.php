@@ -64,18 +64,18 @@
                     <tr class='align-middle'>
                         <td>{{$i++}}</td>
                         <td>{{$item->blog_name}}</td>
-                        <td width="15%">{{$item->blogdetail_name}}</td>
+                        <td width="15%">{!! Str::limit($item->blogdetail_name,50)!!}</td>
                         <td>
                             <img width="150px" height="150px" class="img-fluid img-thumbnail" src="/blog/{{$item->blogdetail_image}}" alt="">
                         </td>
-                        <td>{{$item->blogdetail_content}}</td>
-                        <td>{!! Str::limit($item->blogdetail_detail,50)!!}</td>
+                        <td width="15%">{!! Str::limit($item->blogdetail_content,50)!!}</td>
+                        <td width="15%">{!! Str::limit($item->blogdetail_detail,50)!!}</td>
                         <!-- <td>{{$item->added_on}}</td> -->
                         <td>
                             @if($item->blogdetail_status == 1)
-                                <span style="color: green;">Active</span>
+                                <span style="color: green;">Hoạt động</span>
                             @else
-                                <span style="color: red;">Inactive</span>
+                                <span style="color: red;">Không hoạt động</span>
                             @endif
                         </td>
                         <td>
@@ -100,10 +100,10 @@
                     <!-- Model Edit-->
                     <!-- Modal -->
                     <div class="modal fade" id="edit{{$item->blogdetail_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content bg-white">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Update Blogdetail</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Cập Nhập Bài Viết</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -129,7 +129,9 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="fw-bold">Chi tiết bài viết</label>
-                                            <textarea name="blogdetail_detail" class="form-control" rows="5"></textarea>
+                                            <textarea name="blogdetail_detail" class="form-control" rows="5">
+                                                {{$item->blogdetail_detail}}
+                                            </textarea>
                                         </div>
                                         <div class="form-group">
                                             <label class="fw-bold">Hình Ảnh Cũ</label>
@@ -140,7 +142,7 @@
                                             <input type="file" class="form-control" name="blogdetail_image">
                                         </div>    
                                         <div class="form-group">
-                                            <button type="button" class="btn btn-outline-secondary btn-block" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-outline-secondary btn-block" data-bs-dismiss="modal">Đóng</button>
                                             <input onsubmit="validateForm" type="submit" name="btn" class="btn btn-outline-primary btn-block" value="Update">
                                         </div>
                                     </form>

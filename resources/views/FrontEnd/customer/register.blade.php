@@ -1,6 +1,6 @@
 @extends('FrontEnd.master')
 @section('title')
-Register
+    Đăng Ký Tài Khoản
 @endsection
 @section('content')
     <div class="container">
@@ -8,11 +8,11 @@ Register
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="text-center">Sign Up</h2>
+                        <h2 class="text-center">Đăng Ký</h2>
                         <form action="{{ route('store_customer') }}" method="post">
                             @csrf
                             <div class="form-group mb-3">
-                                <input type="text" class="form-control" name="name" placeholder="Username">
+                                <input type="text" class="form-control" name="name" placeholder="Tên tài khoản">
                                 @error('name')
                                     <span class="text-danger ml-2">{{ $message }}</span>
                                 @enderror
@@ -24,30 +24,30 @@ Register
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <input type="text" class="form-control" name="phone_num" placeholder="Phone">
+                                <input type="text" class="form-control" name="phone_num" placeholder="Số điện thoại">
                                 @error('phone_num')
                                     <span class="text-danger ml-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <input type="password" class="form-control" name="password" placeholder="Password">
+                                <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
                                 @error('password')
                                     <span class="text-danger ml-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <input type="password" class="form-control" name="conf_pass" placeholder="Confirm Password">
+                                <input type="password" class="form-control" name="conf_pass" placeholder="Xác nhận lại mật khẩu">
                                 @error('conf_pass')
                                     <span class="text-danger ml-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-group form-check mb-3">
                                 <input type="checkbox" class="form-check-input" name="checkbox" id="terms">
-                                <label class="form-check-label" for="terms">I agree to the terms of service</label>
+                                <label class="form-check-label" for="terms">Tôi đồng ý với các Điều khoản Dịch vụ!</label>
                             </div>
-                            <button type="submit" class="btn btn-outline-info btn-block">Sign Up</button>
+                            <button type="submit" class="btn btn-outline-info btn-block">Đăng Ký</button>
                         </form>
-                        <p class="text-center mt-3">Already have an account? <a href="">Login Now!</a></p>
+                        <p class="text-center mt-3">Bạn đã có tài khoản chưa? <a href="">Đăng Nhập Ngay!</a></p>
                     </div>
                 </div>
             </div>

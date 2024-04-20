@@ -1,6 +1,6 @@
 @extends('BackEnd.admin.home')
 @section('title')
-    Blogs
+    Bài Viết
 @endsection
 @section('content')
     <div class="container">
@@ -14,7 +14,7 @@
                 @endif
                 <div class="card">
                     <div class="card-header text-center" style="font-size: 30px;">
-                        Blogs
+                        Bài Viết
                     </div>
                     <div class="card-body">
                         <form action="{{route('blog_save')}}" method="post">
@@ -30,8 +30,8 @@
                             <div class="form-group">
                                 <label class="fw-bold">Trạng thái bài viết</label>
                                 <div class="radio p-2">
-                                    <input type="radio" name="blog_status" value="1"> Active
-                                    <input type="radio" name="blog_status" value="0"> Inactive
+                                    <input type="radio" name="blog_status" value="1"> Hoạt động
+                                    <input type="radio" name="blog_status" value="0"> Không hoạt động
                                 </div>
                                 <button type="submit" name="btn" class="btn btn-outline-primary btn-block">
                                     Thêm

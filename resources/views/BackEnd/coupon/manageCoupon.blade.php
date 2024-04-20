@@ -1,6 +1,6 @@
 @extends('BackEnd.admin.home')
 @section('title')
-    Manage Coupon
+    Quản Lý Phiếu Giảm Giá
 @endsection
 @section('content')
     @if(Session::get('sms'))
@@ -12,21 +12,21 @@
     <!-- Kết thúc thông báo -->
     <div class="card my-5">
         <div class="card-header">
-            <h3 class="card-title">Manage Coupon</h3>
+            <h3 class="card-title">Quản Lý Phiếu Giảm Giá</h3>
         </div>
         <div class="card-body">
             <table id="" class="table table-hover table-striped text-center">
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Code</th>
-                        <th>Type</th>
-                        <th>Value</th>
-                        <th>Cart Min</th>
-                        <th>Expired On</th>
-                        <th>Added On</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Mã</th>
+                        <th>Kiểu</th>
+                        <th>Giá Trị</th>
+                        <th>Giá Trị Tối Thiểu</th>
+                        <th>Ngày Hết Hạn</th>
+                        <th>Ngày Nhập</th>
+                        <th>Trạng Thái</th>
+                        <th>Chức Năng</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,9 +48,9 @@
                         <td>{{$item->added_on}}</td>
                         <td>
                             @if($item->coupon_status == 1)
-                                <span style="color: green;">Active</span>
+                                <span style="color: green;">Hoạt động</span>
                             @else
-                                <span style="color: red;">Inactive</span>
+                                <span style="color: red;">Không hoạt động</span>
                             @endif
                         </td>
                         <td>
@@ -77,7 +77,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content bg-white">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Update Coupon</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Cập Nhập Phiếu Giảm Giá </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -85,27 +85,27 @@
                                         @csrf
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label class="fw-bold">Code Name</label>
+                                                <label class="fw-bold">Mã</label>
                                                 <input type="text" class="form-control" name="coupon_code" value="{{$item->coupon_code}}">
                                                 <input type="hidden" class="form-control" name="coupon_id" value="{{$item->coupon_id}}">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label class="fw-bold">Coupon Value</label>
+                                                <label class="fw-bold">Giá Trị</label>
                                                 <input type="text" class="form-control" name="coupon_value" value="{{$item->coupon_value}}">
                                             </div>
                                             <div class="form-group">
-                                                <label class="fw-bold">Cart Min value</label>
+                                                <label class="fw-bold">Giá Trị Tối Thiểu</label>
                                                 <input type="text" class="form-control" name="cart_min_value" value="{{$item->cart_min_value}}">
                                             </div>
                                             <div class="form-group">
-                                                <label class="fw-bold">Select Coupon Type</label>
+                                                <label class="fw-bold">Chọn Loại Phiếu Giảm Giá</label>
                                                 <div class="radio p-2">
                                                     <input type="radio" name="coupon_type" value="1"> Percentage
                                                     <input type="radio" name="coupon_type" value="0"> Fixed
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                                                 <input type="submit" name="btn" class="btn btn-primary" value="Update">
                                             </div>
                                             

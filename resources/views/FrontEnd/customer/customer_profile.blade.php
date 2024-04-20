@@ -31,9 +31,9 @@
                         <div class="card-body text-center">
                             <div class="profile-photo">
                                 @if($customer->image)
-                                    <img src="{{ asset('storage/profile_images/' . $customer->image) }}" alt="{{ $customer->name }}" class="mt-5 img-thumbnail rounded-circle" id="customerProfilePicture">
+                                    <img src="/profile_images/{{ $customer->image }}" alt="{{ $customer->name }}" class="mt-5 img-thumbnail rounded-circle" id="customerProfilePicture">
                                 @else
-                                    <img src="{{ asset('storage/profile_images/avatar.png') }}" alt="Default Avatar" class="mt-5 img-thumbnail rounded-circle" id="customerProfilePicture">
+                                    <img src="/profile_images/avatar.png" alt="Default Avatar" class="mt-5 img-thumbnail rounded-circle" id="customerProfilePicture">
                                 @endif
                                 <input class="form-control" type="file" name="profile_image" id="profile_image">
                             </div>
@@ -55,12 +55,12 @@
                             </ul>
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="personal-info">
-                                    <h5>Personal Information</h5>
+                                    <h5>Thông Tin Cá Nhân</h5>
                                     
                                     <div class="row" id="res">
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
-                                                <label for="full-name">Full Name</label>
+                                                <label for="full-name">Họ và Tên</label>
                                                 <input type="text" class="form-control" id="full-name" name="name" value="{{ $customer->name }}" placeholder="Enter full name">
                                             </div>
                                         </div>
@@ -72,13 +72,13 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
-                                                <label for="phone">Phone Number</label>
+                                                <label for="phone">Số Điện Thoại</label>
                                                 <input type="text" class="form-control" id="phone" name="phone_num" value="{{ $customer->phone_num }}" placeholder="Enter phone number">
                                             </div>
                                         </div>
                                         
                                         <div class="col-md-12 text-center">
-                                            <button id="btn" type="submit" class="btn btn-outline-primary">Update</button>
+                                            <button id="btn" type="submit" class="btn btn-outline-primary">Xác Nhận</button>
                                         </div>
                                     </div>
                                 </div>

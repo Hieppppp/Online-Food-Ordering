@@ -1,6 +1,6 @@
 @extends('BackEnd.admin.home')
 @section('title')
-    Invoice
+    Hóa Đơn
 @endsection
 @section('content')
     <!doctype html>
@@ -55,7 +55,7 @@
                     <a class="pt-2 d-inline-block" href="{{url('/')}}" data-abc="true">Food&Drink Online</a>
                     <div class="float-end"> 
                         <h3 class="mb-0">Hóa Đơn: #{{ now()->format('Ymd') }}{{ Str::random(5) }}</h3>
-                        <p class="mb-0">Date: {{$order->created_at->format('Y-m-d')}}</p>
+                        <p class="mb-0">Ngày Tạo: {{$order->created_at->format('Y-m-d')}}</p>
 
                     </div>
                 </div>
@@ -66,14 +66,14 @@
                             <h3 class="text-dark mb-1">PuppyFat</h3>
                             <div>29 Hàng Trống, quận Hoàn Kiếm, Hà Nội</div>
                             <div>Email: foodonline@gmail.com</div>
-                            <div>Phone: +84 9897 989 989</div>
+                            <div>SĐT: +84 9897 989 989</div>
                         </div>
                         <div class="col-sm-6">
                             <h5 class="mb-3">To:</h5>
                             <h3 class="text-dark mb-1">{{$customer->name}}</h3>
-                            <div>Adress: {{$shipping->address}}</div>
+                            <div>Địa Chỉ: {{$shipping->address}}</div>
                             <div>Email: {{$shipping->email}}</div>
-                            <div>Phone: +84 {{$customer->phone_num}}</div>
+                            <div>SĐT: +84 {{$customer->phone_num}}</div>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -81,10 +81,10 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">#</th>
-                                    <th>Item</th>
-                                    <th class="text-end">Price</th>
-                                    <th class="text-center">Qty</th>
-                                    <th class="text-end">Total</th>
+                                    <th>Sản Phẩm</th>
+                                    <th class="text-end">Giá</th>
+                                    <th class="text-center">Số Lượng</th>
+                                    <th class="text-end">Tổng</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -113,7 +113,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="text-start">
-                                            <strong class="text-dark">Subtotal</strong>
+                                            <strong class="text-dark">Tổng Phụ:</strong>
                                         </td>
                                         <td class="text-end">
                                             {{number_format($subtotal, 0, ',', '.')}}.000
@@ -121,19 +121,19 @@
                                     </tr>
                                     <tr>
                                         <td class="text-start">
-                                            <strong class="text-dark">Discount (5%)</strong>
+                                            <strong class="text-dark">Giảm Giá (5%):</strong>
                                         </td>
                                         <td class="text-end">{{number_format($subtotal * 0.05, 0, ',', '.')}}.000</td>
                                     </tr>
                                     <tr>
                                         <td class="text-start">
-                                            <strong class="text-dark">VAT (2%)</strong>
+                                            <strong class="text-dark">VAT (2%):</strong>
                                         </td>
                                         <td class="text-end"> {{number_format(($subtotal - ($subtotal * 0.05)) * 0.02, 0, ',', '.')}}.000</td>
                                     </tr>
                                     <tr>
                                         <td class="text-start">
-                                            <strong class="text-dark">Total</strong>
+                                            <strong class="text-dark">Tổng Thanh Toán:</strong>
                                         </td>
                                         <td class="text-end">
                                             <strong class="text-dark">{{number_format($subtotal - ($subtotal * 0.05) + (($subtotal - ($subtotal * 0.05)) * 0.02), 0, ',', '.')}}.000</strong>

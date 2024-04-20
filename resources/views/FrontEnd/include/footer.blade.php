@@ -5,8 +5,8 @@
                     <div class="row g-4">
                         <div class="col-lg-3">
                             <a href="#">
-                                <h1 class="text-primary mb-0">Food Online</h1>
-                                <p class="text-secondary mb-0">Fresh products</p>
+                                <h1 class="text-primary mb-0">{{$settings->site_title}}</h1>
+                                <p class="text-secondary mb-0">Sản phầm chất lượng</p>
                             </a>
                         </div>
                         <div class="col-lg-6">
@@ -17,10 +17,10 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="d-flex justify-content-end pt-3">
-                                <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href="{{$contactset->tw}}"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="{{$contactset->fb}}"><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
-                                <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-outline-secondary btn-md-square rounded-circle" href="{{$contactset->insta}}"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -28,42 +28,41 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
-                            <h4 class="text-light mb-3">Why People Like us!</h4>
-                            <p class="mb-4">typesetting, remaining essentially unchanged. It was 
-                                popularised in the 1960s with the like Aldus PageMaker including of Lorem Ipsum.</p>
+                            <h4 class="text-light mb-3">Tại sao mọi người lại lựa chọn chúng tôi:</h4>
+                            <p class="mb-4">{{$settings->site_about}}</p>
                             <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Shop Info</h4>
-                            <a class="btn-link" href="">About Us</a>
-                            <a class="btn-link" href="">Contact Us</a>
-                            <a class="btn-link" href="">Privacy Policy</a>
-                            <a class="btn-link" href="">Terms & Condition</a>
-                            <a class="btn-link" href="">Return Policy</a>
-                            <a class="btn-link" href="">FAQs & Help</a>
+                            <h4 class="text-light mb-3">Thông Tin FoodOnline</h4>
+                            <a class="btn-link" href="">Về chúng tôi</a>
+                            <a class="btn-link" href="">Liên hệ chúng tôi</a>
+                            <a class="btn-link" href="">Chính sách bảo mật</a>
+                            <a class="btn-link" href="">Điều khoản & Điều kiện</a>
+                            <a class="btn-link" href="">Chính sách hoàn trả</a>
+                            <a class="btn-link" href="">Câu hỏi thường gặp & Trợ giúp</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Account</h4>
-                            <a class="btn-link" href="">My Account</a>
-                            <a class="btn-link" href="">Shop details</a>
-                            <a class="btn-link" href="">Shopping Cart</a>
-                            <a class="btn-link" href="">Wishlist</a>
-                            <a class="btn-link" href="">Order History</a>
-                            <a class="btn-link" href="">International Orders</a>
+                            <h4 class="text-light mb-3">Tài Khoản</h4>
+                            <a class="btn-link" href="">Tài khoản của tôi</a>
+                            <a class="btn-link" href="">Chi tiết sản phẩm</a>
+                            <a class="btn-link" href="">Giỏ hàng</a>
+                            <a class="btn-link" href="">Danh sách yêu thích</a>
+                            <a class="btn-link" href="">lịch sử đơn hàng</a>
+                            <a class="btn-link" href="">Đơn đặt hàng quốc tế</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
-                            <h4 class="text-light mb-3">Contact</h4>
-                            <p>Address: 1429 Netus Rd, NY 48247</p>
-                            <p>Email: Example@gmail.com</p>
-                            <p>Phone: +0123 4567 8910</p>
-                            <p>Payment Accepted</p>
-                            <img src="img/payment.png" class="img-fluid" alt="">
+                            <h4 class="text-light mb-3">Liên Hệ</h4>
+                            <p>Địa Chỉ: {{$contactset->address}}</p>
+                            <p>Email: {{$contactset->email}}</p>
+                            <p>Phone: {{$contactset->pn1}}</p>
+                            <p>Thanh toán được chấp nhận</p>
+                            <!-- <img src="img/payment.png" class="img-fluid" alt=""> -->
                         </div>
                     </div>
                 </div>

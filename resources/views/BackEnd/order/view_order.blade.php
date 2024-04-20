@@ -1,6 +1,6 @@
 @extends('BackEnd.admin.home')
 @section('title')
-    View Order Detail
+    Xem Chi Tiết Đơn Hàng
 @endsection
 @section('content')
     <!-- Kết thúc thông báo -->
@@ -12,7 +12,7 @@
             <div class="card-body">
                 <table class="table table-bordered">
                     <tr>
-                        <th>Name</th>
+                        <th>Khách Hàng</th>
                         <td>{{$customer->name}}</td>
                     </tr>
                     <tr>
@@ -20,7 +20,7 @@
                         <td>{{$customer->email}}</td>
                     </tr>
                     <tr>
-                        <th>Phone Number</th>
+                        <th>Số Điện Thoại</th>
                         <td>{{$customer->phone_num}}</td>
                     </tr>
                 </table>
@@ -33,15 +33,15 @@
             <div class="card-body">
                 <table class="table table-bordered">
                     <tr>
-                        <th>Order ID</th>
+                        <th>Mã Hóa Đơn</th>
                         <td>{{$order->order_id}}</td>
                     </tr>
                     <tr>
-                        <th>Order Total</th>
+                        <th>Tổng Đơn Hàng</th>
                         <td>{{ number_format($order->order_total, 0, ',', '.') }}.000</td>
                     </tr>
                     <tr>
-                        <th>Order Status</th>
+                        <th>Trạng Thái Đơn Hàng</th>
                         <td>{{$order->order_status}}</td>
                     </tr>
                 </table>
@@ -54,7 +54,7 @@
             <div class="card-body">
                 <table class="table table-bordered">
                     <tr>
-                        <th>Name</th>
+                        <th>Tên Khách Hàng</th>
                         <td>{{$shipping->name}}</td>
                     </tr>
                     <tr>
@@ -62,11 +62,11 @@
                         <td>{{$shipping->email}}</td>
                     </tr>
                     <tr>
-                        <th>Phone Number</th>
+                        <th>Số Điện Thoại</th>
                         <td>{{$shipping->phone_num}}</td>
                     </tr>
                     <tr>
-                        <th>Adress</th>
+                        <th>Địa Chỉ</th>
                         <td>{{$shipping->address}}</td>
                     </tr>
                 </table>
@@ -79,11 +79,11 @@
             <div class="card-body">
                 <table class="table table-bordered">
                     <tr>
-                        <th>Payment Type</th>
+                        <th>Hình Thức Thanh Toán</th>
                         <td>{{$payment->payment_type}}</td>
                     </tr>
                     <tr>
-                        <th>Payment Status</th>
+                        <th>Trạng Thái Thanh Toán</th>
                         <td>{{$payment->payment_status}}</td>
                     </tr>
                     
@@ -100,12 +100,12 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>ID</th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Date</th>
-                            <th>Total</th>
+                            <th>Mã Sản Phẩm</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Giá</th>
+                            <th>Số Lượng</th>
+                            <th>Ngày Mua</th>
+                            <th>Tổng</th>
                             
                         </tr>
                     </thead>

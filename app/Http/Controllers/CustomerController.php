@@ -23,6 +23,7 @@ use App\Models\Payment;
 class CustomerController extends Controller
 {
     public function show(){
+        $this->shareSettingsAndContactSet();
         return view('FrontEnd.customer.register');
     }
 
@@ -133,7 +134,7 @@ class CustomerController extends Controller
     public function shipping(){
         $customer_id = session('customer_id');
         $customer = Customer::find($customer_id);
-
+        $this->shareSettingsAndContactSet();
         return view('FrontEnd.checkout.shipping', compact('customer'));
     }
 
@@ -153,7 +154,7 @@ class CustomerController extends Controller
     public function profile(){
         $customer_id = session('customer_id');
         $customer = Customer::find($customer_id);
-
+        $this->shareSettingsAndContactSet();
         return view('FrontEnd.customer.customer_profile', compact('customer'));
     }
 
@@ -170,14 +171,20 @@ class CustomerController extends Controller
 
             // Xóa hình ảnh cũ
             if ($customer->image) {
-                Storage::delete('public/profile_images/' . $customer->image);
+                // Xóa hình ảnh cũ từ thư mục public
+                $oldImagePath = public_path('profile_images/') . $customer->image;
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
             }
 
             // Tạo tên mới cho hình ảnh dựa trên định dạng mong muốn
             $imageName = 'Customer_IMAGE_' . uniqid() . '.' . $request->file('profile_image')->getClientOriginalExtension();
 
-            // Lưu hình ảnh mới với tên đã tạo
-            $imagePath = $request->file('profile_image')->storeAs('profile_images', $imageName, 'public');
+            // Lưu hình ảnh mới vào thư mục public
+            $request->file('profile_image')->move(public_path('profile_images'), $imageName);
+            
+            // Lưu tên hình ảnh vào cơ sở dữ liệu
             $customer->image = $imageName;
         }
 
@@ -189,9 +196,10 @@ class CustomerController extends Controller
 
         // Cập nhật tên người dùng trong session
         session()->put('customer_name', $request->name);
-
+        $this->shareSettingsAndContactSet();
         return redirect()->route('customer_profile')->with('sms', 'Update thành công.');
     }
+
 
 
     

@@ -12,7 +12,7 @@
    
     <div class="card my-5">
         <div class="card-header">
-            <h3 class="card-title">Danh Mục Blog</h3>
+            <h3 class="card-title">Danh Mục Bài Viết</h3>
         </div>
         <div class="card-body">
             <table id="" class="table table-hover table-striped text-center">
@@ -34,9 +34,9 @@
                         <td>{{$item->blog_slug}}</td>
                         <td>
                             @if($item->blog_status == 1)
-                                <span style="color: green;">Active</span>
+                                <span style="color: green;">hoạt động</span>
                             @else
-                                <span style="color: red;">Inactive</span>
+                                <span style="color: red;">Không hoạt động</span>
                             @endif
                         </td>
                         <td>
@@ -63,7 +63,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content bg-white">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Update Blog</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Cập Nhập Bài Viết</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -80,7 +80,7 @@
                                             
                                         </div>
                                         <div class="form-group">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                                             <input type="submit" name="btn" class="btn btn-primary" value="Update">
                                         </div>
                                     </form>

@@ -8,13 +8,13 @@
             <div class="container topbar bg-primary d-none d-lg-block">
                 <div class="d-flex justify-content-between">
                     <div class="top-info ps-2">
-                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">123 Street, New York</a></small>
-                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Email@Example.com</a></small>
+                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">{{$contactset->address}}</a></small>
+                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">{{$contactset->email}}</a></small>
                     </div>
                     <div class="top-link pe-2">
-                        <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
-                        <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
-                        <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                        <a href="#" class="text-white"><small class="text-white mx-2">Chính Sách Bảo Mật</small>/</a>
+                        <a href="#" class="text-white"><small class="text-white mx-2">Điều Khoản Sử Dụng</small>/</a>
+                        <a href="#" class="text-white"><small class="text-white ms-2">Bán Hàng và Hoàn Tiền</small></a>
                     </div>
                 </div>
             </div>
@@ -26,16 +26,17 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
-                            <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
-                            <a href="{{route('show_product')}}" class="nav-item nav-link">Shop</a>
+                            <a href="{{route('home')}}" class="nav-item nav-link active">Trang Chủ</a>
+                            <a href="{{route('show_product')}}" class="nav-item nav-link">Sản Phẩm</a>
+                            <a href="{{route('contact')}}" class="nav-item nav-link">Liên Hệ</a>
+                            <a href="{{route('blog')}}" class="nav-item nav-link">Bài Viết</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Trang</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                    <a href="{{route('cart_show')}}" class="dropdown-item">Cart</a>
-                                    <a href="testimonial.html" class="dropdown-item">Delivery</a>
+                                    <a href="{{route('cart_show')}}" class="dropdown-item">Giỏ Hàng</a>
+                                    <a href="testimonial.html" class="dropdown-item">Vận Chuyển</a>
                                 </div>
                             </div>
-                            <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="d-flex m-3 me-0">
                             <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal">
@@ -43,7 +44,7 @@
                             </button>
                             <a href="" type="button" class="position-relative me-4 my-auto btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
                                 <i class="fa fa-shopping-bag fa-2x"></i>
-                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -1px; left: 25px; height: 20px; min-width: 20px;">{{ count((array) session('cart')) }}</span>
+                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1 cart-quantity" style="top: -1px; left: 25px; height: 20px; min-width: 20px;">{{ count((array) session('cart')) }}</span>
                             </a>
 
                             <ul class="navbar-nav ml-auto">
@@ -56,9 +57,9 @@
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="user-icon">
                                                     @if($customer->image)
-                                                        <img src="{{ asset('storage/profile_images/' . $customer->image) }}" alt="images" style="width: 40px; height: 40px; border-radius: 50%;">
+                                                        <img src="{{ asset('profile_images/' . $customer->image) }}" alt="images" style="width: 40px; height: 40px; border-radius: 50%;">
                                                     @else
-                                                        <img src="{{ asset('storage/profile_images/avatar.png') }}" alt="Default Avatar" style="width: 40px; height: 40px; border-radius: 50%;">
+                                                        <img src="{{ asset('profile_images/avatar.png') }}" alt="Default Avatar" style="width: 40px; height: 40px; border-radius: 50%;">
                                                     @endif
                                                 </span>
                                                 {{ Session::get('customer_name') }}
@@ -77,10 +78,10 @@
                                     @endif
                                 @else
                                     <li class="nav-item">
-                                        <a href="{{ route('login_in') }}" class="nav-link">Login</a>
+                                        <a href="{{ route('login_in') }}" class="nav-link">Đăng Nhập</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('sign_up') }}" class="nav-link">Resgister</a>
+                                        <a href="{{ route('sign_up') }}" class="nav-link">Đăng Ký Tài Khoản</a>
                                     </li>
                                 @endif
                             </ul>

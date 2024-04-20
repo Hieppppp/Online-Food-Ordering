@@ -1,6 +1,6 @@
 @extends('BackEnd.admin.home')
 @section('title')
-    Category Page
+    Trang Danh Mục
 @endsection
 
 @section('content')
@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <h4>Category</h4>
+                <h4>Loại Sản Phẩm</h4>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb" >
@@ -16,7 +16,7 @@
                         <a href="{{url('/')}}">Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        Add Category
+                        Thêm Danh Mục
                     </li>
                 </ol>
             </nav>
@@ -31,31 +31,31 @@
                 @endif
                 <div class="card">
                     <div class="card-header text-center" style="font-size: 30px;">
-                        Category
+                        Danh Mục Sản Phẩm
                     </div>
                     <div class="card-body">
                         <form action="{{route('cate_save')}}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label class="fw-bold">Category Name </label>
+                                <label class="fw-bold">Tên Danh Mục </label>
                                 <input type="text" class="form-control" name="category_name">
                             </div>
                             <div class="form-group">
-                                <label class="fw-bold">Order Number </label>
+                                <label class="fw-bold">Số Lượng</label>
                                 <input type="number" class="form-control" name="order_number">
                             </div>
                             <div class="form-group">
-                                <label class="fw-bold">Add On </label>
+                                <label class="fw-bold">Ngày Nhập </label>
                                 <input type="date" class="form-control" name="added_on">
                             </div>
                             <div class="form-group">
-                                <label class="fw-bold">Category Status</label>
+                                <label class="fw-bold">Trạng Thái</label>
                                 <div class="radio p-2">
-                                    <input type="radio" name="category_status" value="1"> Active
-                                    <input type="radio" name="category_status" value="0"> Inactive
+                                    <input type="radio" name="category_status" value="1"> Hoạt động
+                                    <input type="radio" name="category_status" value="0"> Không hoạt động
                                 </div>
                                 <button type="submit" name="btn" class="btn btn-outline-primary btn-block">
-                                    Category Add
+                                    Thêm
                                 </button>
                             </div>
                         </form>

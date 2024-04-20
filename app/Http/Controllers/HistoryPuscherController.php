@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 class HistoryPuscherController extends Controller
 {
     public function purchase(){
+        $this->shareSettingsAndContactSet();
         return view('FrontEnd.customer.customer_invoice');
     } 
     

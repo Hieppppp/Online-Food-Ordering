@@ -1,6 +1,6 @@
 @extends('BackEnd.admin.home')
 @section('title')
-    Manage Delivery
+    Quản Lý Giao Hàng
 @endsection
 @section('content')
 
@@ -13,18 +13,18 @@
     <!-- Kết thúc thông báo -->
     <div class="card my-5">
         <div class="card-header">
-            <h3 class="card-title">Manage Delivery</h3>
+            <h3 class="card-title">Quản Lý Giao Hàng</h3>
         </div>
         <div class="card-body">
             <table id="" class="table table-hover table-striped text-center">
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Delivery Name</th>
-                        <th>Phone</th>
-                        <th>Pass</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Tên Giao Hàng</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Thẻ Giao Hàng</th>
+                        <th>Trạng Thái</th>
+                        <th>Chức Năng</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,9 +37,9 @@
                         <td>{{$item->delivery_pass}}</td>
                         <td>
                             @if($item->delivery_status == 1)
-                                <span style="color: green;">Active</span>
+                                <span style="color: green;">Đang làm</span>
                             @else
-                                <span style="color: red;">Inactive</span>
+                                <span style="color: red;">Không làm</span>
                             @endif
                         </td>
                         <td>
@@ -66,27 +66,27 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content bg-white">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Update Delivery</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Cập Nhập Giao Hàng</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form action="{{route('delivery_update')}}" method="post">
                                         @csrf
                                         <div class="form-group">
-                                            <label>Delivery Name</label>
+                                            <label>Tên Giao Hàng</label>
                                             <input type="text" class="form-control" name="delivery_name" value="{{$item->delivery_name}}">
                                             <input type="hidden" class="form-control" name="delivery_id" value="{{$item->delivery_id}}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Phone</label>
+                                            <label>Số Điện Thoại</label>
                                             <input type="text" class="form-control" name="delivery_phone" value="{{$item->delivery_phone}}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Pass</label>
-                                            <input type="password" class="form-control" name="delivery_pass" value="{{$item->delivery_pass}}">
+                                            <label>Thẻ Giao Hàng</label>
+                                            <input type="text" class="form-control" name="delivery_pass" value="{{$item->delivery_pass}}">
                                         </div>
                                         <div class="form-group">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                                             <input type="submit" name="btn" class="btn btn-primary" value="Update">
                                         </div>
                                     </form>

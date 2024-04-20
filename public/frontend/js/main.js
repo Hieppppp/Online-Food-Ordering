@@ -147,5 +147,8 @@
         button.parent().parent().find('input').val(newVal);
     });
 
+    //Add to Cart - Ajax
+    
+
 })(jQuery);
 

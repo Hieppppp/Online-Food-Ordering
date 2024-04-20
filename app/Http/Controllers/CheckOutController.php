@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class CheckOutController extends Controller
 {
     public function payment(){
+        $this->shareSettingsAndContactSet();
         return view('FrontEnd.checkout.checkout_payment');
     }
 
@@ -94,6 +95,7 @@ class CheckOutController extends Controller
     }
     
     public function complete(){
+        $this->shareSettingsAndContactSet();
         return view('FrontEnd.checkout.order_complete');
     }
 }
