@@ -12,10 +12,10 @@
                     <div class="col-lg-12">
                         <div class="row g-4">
                             <div class="col-xl-3">
-                                <div class="input-group w-100 mx-auto d-flex">
-                                    <input type="search" class="form-control p-3" placeholder="Tìm Kiếm" aria-describedby="search-icon-1">
-                                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                                </div>
+                                <form action="{{ route('show_product') }}" method="GET" class="input-group w-100 mx-auto d-flex">
+                                    <input type="search" name="search" class="form-control p-3" placeholder="Tìm Kiếm" aria-describedby="search-icon-1">
+                                    <button type="submit" class="btn btn-outline-secondary" id="search-icon-1"><i class="fa fa-search"></i></button>
+                                </form>
                             </div>
                             <div class="col-6"></div>
                             <div class="col-xl-3">
@@ -37,12 +37,12 @@
                                 <div class="row g-4">
                                     <div class="col-lg-12">
                                         <div class="mb-3">
-                                            <h4>Categories</h4>
+                                            <h4>Danh Mục Sản Phẩm</h4>
                                             <ul class="list-unstyled fruite-categorie">
                                                 @foreach($categories as $category)
                                                 <li>
                                                     <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="{{ route('category_product', ['category_id' => $category->category_id]) }}">{{ $category->category_name }}</a>
+                                                        <a href="{{ route('show_product', ['category_id' => $category->category_id]) }}">{{ $category->category_name }}</a>
                                                         <span>{{ $category->order_number }}</span>
                                                     </div>
                                                 </li>
@@ -83,13 +83,14 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <h4 class="mb-3">Featured products</h4>
+                                        <h4 class="mb-3">Sản Phẩm Nổi Bật</h4>
+                                        @foreach($topProduct as $toppro)
                                         <div class="d-flex align-items-center justify-content-start">
                                             <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                                <img src="img/featur-1.jpg" class="img-fluid rounded" alt="">
+                                                <img src="/product/{{$toppro->product_image}}" class="img-fluid rounded" alt="">
                                             </div>
                                             <div>
-                                                <h6 class="mb-2">Big Banana</h6>
+                                                <h6 class="mb-2"></h6>
                                                 <div class="d-flex mb-2">
                                                     <i class="fa fa-star text-secondary"></i>
                                                     <i class="fa fa-star text-secondary"></i>
@@ -103,56 +104,19 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-start">
-                                            <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                                <img src="img/featur-2.jpg" class="img-fluid rounded" alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-2">Big Banana</h6>
-                                                <div class="d-flex mb-2">
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="d-flex mb-2">
-                                                    <h5 class="fw-bold me-2">2.99 $</h5>
-                                                    <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-start">
-                                            <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                                <img src="img/featur-3.jpg" class="img-fluid rounded" alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-2">Big Banana</h6>
-                                                <div class="d-flex mb-2">
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="d-flex mb-2">
-                                                    <h5 class="fw-bold me-2">2.99 $</h5>
-                                                    <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                         <div class="d-flex justify-content-center my-4">
-                                            <a href="#" class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100">Vew More</a>
+                                            <a href="#" class="btn border border-secondary px-4 py-3 rounded-pill text-danger w-100">Vew More</a>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <!-- <div class="col-lg-12">
                                         <div class="position-relative">
                                             <img src="img/banner-fruits.jpg" class="img-fluid w-100 rounded" alt="">
                                             <div class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
                                                 <h3 class="text-secondary fw-bold">Fresh <br> Fruits <br> Banner</h3>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="col-lg-9">
@@ -165,11 +129,11 @@
                                                 </div>
                                                 <!-- <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$item->category_name}}</div> -->
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h6 class="d-inline-block">{{$item->product_name}}</h6>
+                                                    <h6 class="d-inline-block text-danger">{{$item->product_name}}</h6>
                                                     <p class="d-inline-block text-truncate" style="max-width: 200px;">{!! Str::limit($item->product_detail,300) !!}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                                                         <p class="text-dark fs-5 fw-bold mb-0">₫{{$item->full_price}}.000</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart" data-product-id="{{$item->product_id}}"><i class="fa fa-shopping-bag me-2 text-primary"></i> Chọn mua</a>
+                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-danger add-to-cart" data-product-id="{{$item->product_id}}"><i class="fa fa-shopping-bag me-2 text-danger"></i> Chọn mua</a>
 
                                                     </div>
                                                     <div class="col-md-12 d-flex justify-content-end">
@@ -200,7 +164,7 @@
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <h4 class="fw-bold mb-3">{{$item->product_name}}</h4>
-                                                                <p class="mb-3">Category: {{$item->category_name}}</p>
+                                                                <p class="mb-3">Loại Sản Phẩm: {{$item->category_name}}</p>
                                                                 <h5 class="fw-bold mb-3">₫{{$item->full_price}}.000</h5>
                                                                 <div class="d-flex mb-4">
                                                                     <i class="fa fa-star text-secondary"></i>
@@ -230,8 +194,8 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <input type="hidden" name="product_id" value="{{$item->product_id}}">
-                                                    <!-- <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button> -->
-                                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart" data-product-id="{{$item->product_id}}"><i class="fa fa-shopping-bag me-2 text-primary"></i> Chọn mua</a>
+                                                    <!-- <button type="submit" class="btn border border-secondary rounded-pill px-3 text-danger"><i class="fa fa-shopping-bag me-2 text-danger"></i> Add to cart</button> -->
+                                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-danger add-to-cart" data-product-id="{{$item->product_id}}"><i class="fa fa-shopping-bag me-2 text-danger"></i> Chọn mua</a>
 
                                                 </div>
                                             </div>
@@ -239,18 +203,14 @@
                                     </div>
                                     @endforeach
                                     <div class="col-12">
-                                        <div class="pagination d-flex justify-content-center mt-5">
-                                            <a href="#" class="rounded">&laquo;</a>
-                                            <a href="#" class="active rounded">1</a>
-                                            <a href="#" class="rounded">2</a>
-                                            <a href="#" class="rounded">3</a>
-                                            <a href="#" class="rounded">4</a>
-                                            <a href="#" class="rounded">5</a>
-                                            <a href="#" class="rounded">6</a>
-                                            <a href="#" class="rounded">&raquo;</a>
+                                        <div class="pagination justify-content-center custom-pagination">
+                                            {{ $products->links() }}
                                         </div>
-                                    </div>
+
+                                       
+                                    </div> 
                                 </div>
+
                             </div>
                         </div>
                     </div>

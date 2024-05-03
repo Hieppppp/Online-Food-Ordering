@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Payment;
+use Illuminate\Support\Facades\Auth;
 
 
 class CustomerController extends Controller
@@ -42,6 +43,7 @@ class CustomerController extends Controller
         $customer->phone_num = $request->phone_num;
         $customer->password = Hash::make($request->password);
         $customer->conf_pass = Hash::make($request->conf_pass);
+        $customer->image = 'avatar.png';
         $save = $customer->save();
 
         if($save) {

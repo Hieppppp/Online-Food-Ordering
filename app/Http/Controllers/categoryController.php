@@ -7,7 +7,18 @@ use App\Models\Category;
 
 class categoryController extends Controller
 {
+    public function AuthLogin(){
+        $admin_id = session()->get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
+
     public function index(){
+        $this->AuthLogin();
         return view('BackEnd.category.addCategory');
     }
 
@@ -23,6 +34,7 @@ class categoryController extends Controller
     }
 
     public function manage(){
+        $this->AuthLogin();
         $categories = Category::all();
         return view('BackEnd.category.manageCategory',compact('categories'));
     }
@@ -49,6 +61,7 @@ class categoryController extends Controller
     }
 
     public function update(Request $request){
+        $this->AuthLogin();
         $category = Category::find($request->category_id);
         $category->category_name = $request->category_name;
         $category->order_number = $request->order_number;

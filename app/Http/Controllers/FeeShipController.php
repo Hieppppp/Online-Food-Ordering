@@ -11,7 +11,17 @@ use Illuminate\Http\Request;
 
 class FeeShipController extends Controller
 {
+    public function AuthLogin(){
+        $admin_id = session()->get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
     public function index(Request $request){
+        $this->AuthLogin();
         $city = City::orderBy('matp','ASC')->get();
 
         return view('BackEnd.delivery.manageFeeShip')->with(compact('city'));
@@ -60,6 +70,7 @@ class FeeShipController extends Controller
     }
 
     public function manage(Request $request){
+        $this->AuthLogin();
         $feeship = FeeShip::orderBy('fee_id','DESC')->get();
         $output = '';
         $output .= '<div class="table-responsive">
@@ -93,6 +104,7 @@ class FeeShipController extends Controller
     }
 
     public function update(Request $request){
+        $this->AuthLogin();
         $data = $request->all();
         $fee_feeship = FeeShip::find($data['feeship_id']);
         $fee_value = rtrim($data['fee_value'],'.');

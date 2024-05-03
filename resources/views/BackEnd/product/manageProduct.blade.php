@@ -10,7 +10,7 @@
         </div>
     @endif
     <!-- Kết thúc thông báo -->
-    <div class="card my-5">
+    <div class="card">
         <div class="card-header mb-4">
             <h3 class="card-title">Quản Lý Sản Phẩm</h3>
         </div>
@@ -176,6 +176,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div>
+                {{ $producties->links() }}
+            </div>
         </div>
 
     </div>

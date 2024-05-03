@@ -10,7 +10,17 @@ use Illuminate\Support\Facades\File;
 
 class BlogDetailController extends Controller
 {
+    public function AuthLogin(){
+        $admin_id = session()->get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
     public function index(){
+        $this->AuthLogin();
         
         $blogs = Blog::where('blog_status',1)->get();
         
@@ -37,6 +47,7 @@ class BlogDetailController extends Controller
     }
 
     public function manage(Request $request){
+        $this->AuthLogin();
         $blogs = Blog::where('blog_status',1)->get();
         
         $query = DB::table('blog_details')
@@ -111,6 +122,7 @@ class BlogDetailController extends Controller
     }
 
     public function update(Request $request){
+        $this->AuthLogin();
         $blogdetail = BlogDetail::find($request->blogdetail_id);
     
         $blogdetail->blogdetail_name = $request->blogdetail_name;
@@ -127,4 +139,6 @@ class BlogDetailController extends Controller
         $blogdetail->save();
         return redirect('/blogdetail/manage')->with('sms', 'Update thành công!');
     }
+
+    
 }

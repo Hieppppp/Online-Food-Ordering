@@ -77,7 +77,7 @@
             </ul>
             
         </li>
-        <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
+        <li><a href="{{route('admindashboard')}}"> <i class="icon-logout"></i>Login page </a></li>
     </ul>
 </nav>
 

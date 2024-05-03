@@ -133,7 +133,7 @@
                                 @endphp
                             @endforeach
                             <div class="col-lg-12 col-sm-12 col-12 text-left">
-                                <p>Tổng: <span class="text-info">{{number_format($total,0,',','.')}}.000</span></p>
+                                <p>Tổng: <span class="text-dark">{{number_format($total,0,',','.')}}.000</span></p>
                             </div>
                         </div>
                         @if(session('cart'))
@@ -144,7 +144,7 @@
                                     </div>
                                     <div class="col-lg-8 col-sm-8 col-8">
                                         <p >{{$item['product_name']}}</p>
-                                        <span class="text-dark">Giá: {{$item['price']}}</span>
+                                        <span class="text-dark">Giá: {{$item['price']}}.000</span>
                                         <span class="count">Quantity: {{$item['quantity']}}</span>
                                     </div>
                                 </div>

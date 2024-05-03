@@ -18,7 +18,7 @@
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="{{asset('/admin')}}/css/font.css">
     <!-- Google fonts - Muli-->
-    <link rel="stylesheet" href="{{asset('/admin')}}/https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <!-- <link rel="stylesheet" href="{{asset('/admin')}}/https://fonts.googleapis.com/css?family=Muli:300,400,700"> -->
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="{{asset('/admin')}}/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
@@ -69,9 +69,9 @@
     <script src="{{asset('/admin')}}/js/charts-home.js"></script>
     <script src="{{asset('/admin')}}/js/front.js"></script>
     <!-- <script src="{{asset('/admin')}}/js/feeship.js"></script> -->
-    <script src="{{asset('/admin')}}/https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <!-- <script src="{{asset('/admin')}}/https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="{{asset('/admin')}}/https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <script src="{{asset('/admin')}}/https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="{{asset('/admin')}}/https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -146,7 +146,7 @@
                 var province = $('.province').val();
                 var _token = '{{ csrf_token() }}';
                 var wards = $('.wards').val();
-                var fee_feeship = $('.fee_feeship').val();
+                var comment = $('.comment').val();
                 // alert(city);
                 // alert(province);
                 // alert(wards);

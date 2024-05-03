@@ -16,8 +16,18 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
+    public function AuthLogin(){
+        $admin_id = session()->get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
     public function manageOrder()
     {
+        $this->AuthLogin();
         $orders = DB::table('orders')
             ->join('customers', 'orders.customer_id', '=', 'customers.customer_id') //nối bảng Orders với Customers
             ->join('payments', 'orders.order_id', '=', 'payments.order_id') //Nối bảng orders với payments
@@ -28,6 +38,7 @@ class OrderController extends Controller
     }
 
     public function viewOrder($order_id){
+        $this->AuthLogin();
         $order = Order::where('order_id', $order_id)->first();
         $customer = Customer::find($order->customer_id);
         $shipping = Shipping::find($order->shipping_id);
@@ -39,6 +50,7 @@ class OrderController extends Controller
     }
 
     public function viewInvoice($order_id){
+        $this->AuthLogin();
         $order = Order::where('order_id', $order_id)->first();
     
         // Kiểm tra trạng thái của đơn hàng
@@ -77,6 +89,7 @@ class OrderController extends Controller
     }
 
     public function downloadInvoice($order_id){
+        $this->AuthLogin();
         $order = Order::where('order_id', $order_id)->first();
         $customer = Customer::find($order->customer_id);
         $shipping = Shipping::find($order->shipping_id);

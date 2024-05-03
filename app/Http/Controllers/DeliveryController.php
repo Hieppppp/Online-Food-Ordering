@@ -7,7 +7,17 @@ use Illuminate\Http\Request;
 
 class DeliveryController extends Controller
 {
+    public function AuthLogin(){
+        $admin_id = session()->get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
     public function index(){
+        $this->AuthLogin();
         return view('BackEnd.delivery.addDelivery');
     }
     public function save(Request $request){
@@ -25,6 +35,7 @@ class DeliveryController extends Controller
     }
 
     public function manage(){
+        $this->AuthLogin();
         $deliveries = Delivery::all();
         return view('BackEnd.delivery.manageDelivery',compact('deliveries'));
     }
@@ -50,6 +61,7 @@ class DeliveryController extends Controller
     }
 
     public function update(Request $request){
+        $this->AuthLogin();
         $delivery = Delivery::find($request->delivery_id);
         $delivery->delivery_name = $request->delivery_name;
         $delivery->delivery_phone = $request->delivery_phone;

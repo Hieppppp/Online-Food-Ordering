@@ -16,4 +16,11 @@ class Category extends Model
     
     ];
     protected $primaryKey = 'category_id';
+
+    protected $table ='categories';
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Product');
+    }
 }

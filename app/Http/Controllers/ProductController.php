@@ -11,7 +11,17 @@ use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
+    public function AuthLogin(){
+        $admin_id = session()->get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
     public function index(){
+        $this->AuthLogin();
         
         $categories = Category::where('category_status',1)->get();
         
@@ -42,6 +52,7 @@ class ProductController extends Controller
     }
 
     public function manage(Request $request){
+        $this->AuthLogin();
         $categories = Category::where('category_status',1)->get();
         
         $query = DB::table('products')
@@ -84,7 +95,7 @@ class ProductController extends Controller
         }
 
 
-        $producties = $query->get();
+        $producties = $query->paginate(10);
     
         return view('BackEnd.product.manageProduct',compact('producties','categories','sortType'));
     }
@@ -116,6 +127,7 @@ class ProductController extends Controller
     }
 
     public function update(Request $request){
+        $this->AuthLogin();
         $product = Product::find($request->product_id);
     
         $product->product_name = $request->product_name;
@@ -136,6 +148,8 @@ class ProductController extends Controller
         $product->save();
         return redirect('/product/manage')->with('sms', 'Update thành công!');
     }
+
+    
 
     
     

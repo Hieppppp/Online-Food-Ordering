@@ -1,6 +1,6 @@
 @extends('FrontEnd.master')
 @section('title', 'Profile')
-
+    Cập Nhập Profile
 @section('content')
     @if(Session::get('sms'))
         <div class="alert-container">

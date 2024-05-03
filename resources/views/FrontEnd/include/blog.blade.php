@@ -1,6 +1,6 @@
 @extends('FrontEnd.master')
 @section('title')
-    Blog
+    Bài Viết
 @endsection
 @section('content')
     <section class="blog spad">
@@ -78,13 +78,13 @@
                                 <div class="blog__item__text">
                                     <ul>
                                         <li><span class="author"><i class="fas fa-user"></i> Admin</span></li>
-                                        <li><i class="fas fa-calendar"></i> {{$item->created_at->format('Y-m-d')}}</li>
-                                        <li><i class="fas fa-comment"></i> số lượng bài viết</li>
+                                        <li><i class="fas fa-calendar"></i>Ngày Viết: {{$item->created_at->format('Y-m-d')}}</li>
+                                        
                                     </ul>
-                                    <h5><a href="#">{{$item->blogdetail_name}}</a></h5>
+                                    <h5><a href="{{route('blog_detail',$item->blogdetail_id)}}">{{$item->blogdetail_name}}</a></h5>
                                     <p>{!! Str::limit( $item->blogdetail_detail,50) !!}</p>
                                     
-                                    <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                                    <a href="{{route('blog_detail',$item->blogdetail_id)}}" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>

@@ -20,4 +20,22 @@ class BlogDetail extends Model
 
 
     protected $primaryKey = 'blogdetail_id';
+ 
+
+    protected $table ='blog_details';
+
+
+    public function customer(){
+        return $this->belongsTo(Customer::class,'customer_id');
+    }
+
+    public function comment(){
+        return $this->hasMany(Comment::class,'id')->whereNull('prent_id');
+    }
+
+    public function getComment(){
+        return $this->hasMany(Comment::class,'blogdetail_id')->orderBy('comments.id','desc');
+    }
+
+    
 }

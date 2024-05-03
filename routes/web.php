@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogDetailController;
 use Illuminate\Support\Facades\Route;
@@ -32,15 +33,25 @@ use PHPUnit\Framework\Attributes\Group;
 |
 */
 
-Route::get('/', function () {
-    return view('BackEnd.admin.home');
-});
+// Route::get('/', function () {
+//     return view('BackEnd.admin.login');
+// });
+Route::get('/admin/home',[AdminController::class,'home'])->name('home');
+Route::get('/admin/login',[AdminController::class,'index'])->name('admindashboard');
+Route::post('/admin-dashboard',[AdminController::class,'dashboard'])->name('check_admindashboard');
+Route::post('/admin/logout',[AdminController::class,'logout'])->name('admin_logout');
+
+
 
 Route::get('/home',[FrontEndController::class,'index'])->name('home');
-Route::get('/category/show_product/show/',[FrontEndController::class,'show_product'])->name('show_product');
+Route::get('/show_product/{category_id?}', [FrontEndController::class, 'show_product'])->name('show_product');
 Route::get('/contact/show/',[FrontEndController::class,'contact'])->name('contact');
 Route::get('/blog/show/',[FrontEndController::class,'blog'])->name('blog');
-Route::get('/category/product/show/{category_id}',[FrontEndController::class,'show'])->name('category_product');
+Route::post('/blog/comment/',[FrontEndController::class,'comment'])->name('comment_blog');
+Route::get('/blog/detail/{blogdetail_id}',[FrontEndController::class,'blogdetail'])->name('blog_detail');
+
+
+
 
 // =============================== Cart =========================//
 Route::post('/add-to-cart/{id}', [CartController::class, 'addToCartAjax'])->name('add_to_cart_ajax');

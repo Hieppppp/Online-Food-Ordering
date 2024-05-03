@@ -7,7 +7,17 @@ use App\Models\Coupon;
 
 class CouponController extends Controller
 {
+    public function AuthLogin(){
+        $admin_id = session()->get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
     public function index(){
+        $this->AuthLogin();
         return view('BackEnd.coupon.addCoupon');
     }
 
@@ -28,6 +38,7 @@ class CouponController extends Controller
     }
 
     public function manage(){
+        $this->AuthLogin();
         $coupons = Coupon::all();
         return view('BackEnd.coupon.manageCoupon',compact('coupons'));
     }
@@ -53,6 +64,7 @@ class CouponController extends Controller
     }
 
     public function update(Request $request){
+        $this->AuthLogin();
         $coupon = Coupon::find($request->coupon_id);
         $coupon->coupon_code = $request->coupon_code;
         $coupon->coupon_type = $request->coupon_type;

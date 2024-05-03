@@ -7,7 +7,18 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+    public function AuthLogin(){
+        $admin_id = session()->get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
+
     public function index(){
+        $this->AuthLogin();
         return view('BackEnd.blog.addBlog');
     }
 
@@ -22,6 +33,7 @@ class BlogController extends Controller
     }
 
     public function manage(){
+        $this->AuthLogin();
         $blogs = Blog::all();
         return view('BackEnd.blog.manageBlog',compact('blogs'));
     }
@@ -48,6 +60,7 @@ class BlogController extends Controller
     }
 
     public function update(Request $request){
+        $this->AuthLogin();
         $blog = Blog::find($request->blog_id);
         $blog->blog_name = $request->blog_name;
         $blog->blog_slug = $request->blog_slug;

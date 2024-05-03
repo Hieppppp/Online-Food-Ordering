@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Customer extends Model 
 {
     use HasFactory;
     protected $fillable = [
@@ -29,10 +29,12 @@ class Customer extends Model
 
     public function getPictureAttribute($value){
         if($value){
-            return asset('/images/users/customer'.$value);
+            return asset('/profile_images'.$value);
         }
         else{
-            return asset('/images/users/default-avatar.png');
+            return asset('/profile_images/avatar.png');
         }
     }
+
+    protected $table ='customers';
 }
