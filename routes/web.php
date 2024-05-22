@@ -56,7 +56,8 @@ Route::get('/blog/detail/{blogdetail_id}',[FrontEndController::class,'blogdetail
 // =============================== Cart =========================//
 Route::post('/add-to-cart/{id}', [CartController::class, 'addToCartAjax'])->name('add_to_cart_ajax');
 Route::get('/cart/show',[CartController::class,'show'])->name('cart_show');
-Route::get('/cart/remove/{id}',[CartController::class,'remove'])->name('remove_cart');
+// Route::get('/cart/remove/{id}',[CartController::class,'remove'])->name('remove_cart');
+Route::post('/remove-cart/{id}',[CartController::class,'remove'])->name('remove_cart');
 Route::post('/cart/update/{id}',[CartController::class,'update'])->name('update_cart');
 // ================================ Cart End ===================//
 
@@ -90,7 +91,7 @@ Route::post('/customer/profile/update', [CustomerController::class, 'updateProfi
 
 
 Route::get('/customer/purchase',[HistoryPuscherController::class,'purchase'])->name('customer_purchase');
-
+Route::get('/customer/viewdetail/purchase/{order_id}',[HistoryPuscherController::class, 'viewDetailPurchase'])->name('customer_viewpurchase');
 
 // ================================= Login End =========================== //
 
@@ -129,9 +130,6 @@ Route::prefix('feeship')->group(function(){
     Route::post('/insert-feeship', [FeeShipController::class,'insert'])->name('insert_feeship');
     Route::post('/select-fee', [FeeShipController::class,'manage'])->name('select_fee');
     Route::post('/update-feeship', [FeeShipController::class,'update'])->name('update_feeship');
-
-
-
 });
 
 //Coupon

@@ -4,7 +4,6 @@
 @endsection
 @section('content')
         <div class="alert-container"></div>
-        
 		<!-- Fruits Shop Start-->
 		<div class="container-fluid fruite py-5">
             <div class="container py-5">
@@ -38,7 +37,6 @@
                                                             <div class="fruite-img">
                                                                 <img src="/product/{{$item->product_image}}" class="img-fluid w-100 rounded-top" alt="">
                                                             </div>
-                                                            
                                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                                 <h6>{{$item->product_name}}</h6>
                                                                 <p>{!! Str::limit($item->product_detail,50) !!}</p>
@@ -60,15 +58,14 @@
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="row g-4">
-                                        @foreach($products->take(16) as $item)
+                                        @foreach($products->take(8) as $item)
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
                                                     <img src="/product/{{$item->product_image}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
-                                                
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h6 class="text-danger">{{$item->product_name}}</h6>
+                                                    <h6 style="height:30px;color:tomato;">{{$item->product_name}}</h6>
                                                     <p>{!! Str::limit($item->product_detail,50) !!}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">{{$item->full_price}}.000</p>
@@ -99,7 +96,7 @@
                                 <img src="/product/{{ $pro->product_image }}" class="img-fluid w-100 rounded-top" alt="">
                             </div>
                             <div class="p-4 rounded-bottom">
-                                <h5>{{ $pro->product_name }}</h5>
+                                <h6 style="height:30px;color:tomato;">{{ $pro->product_name }}</h6>
                                 <p>{!! Str::limit($pro->product_detail, 60) !!}</p>
                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                     <p class="text-dark fs-5 fw-bold mb-0">{{ $pro->full_price }}.000</p>
@@ -168,7 +165,7 @@
                                         <i class="fas fa-star text-danger"></i>
                                         <i class="fas fa-star"></i>
                                     </div>
-                                    <h4 class="mb-3">₫{{$topsale->full_price}}.000</h4>
+                                    <h6 class="mb-3">₫{{$topsale->full_price}}.000</h6>
                                     <a href="#" class="btn border border-secondary rounded-pill px-3 text-danger add-to-cart" data-product-id="{{$topsale->product_id}}"><i class="fa fa-shopping-bag me-2 text-danger"></i> Chọn mua</a>
 
                                 </div>
@@ -182,15 +179,14 @@
                         <div class="text-center">
                             <img src="/product/{{$newPro->product_image}}" class="img-fluid rounded" alt="">
                             <div class="py-2">
-                                <a href="" class="h6 text-danger" >{{$newPro->product_name}}</a>
+                                <a href="" class="text-danger" style="height: 30px;">{{$newPro->product_name}}</a>
                                 <div class="d-flex my-3 justify-content-center">
                                     <i class="fas fa-star text-danger"></i>
                                     <i class="fas fa-star text-danger"></i>
                                     <i class="fas fa-star text-danger"></i>
                                 </div>
-                                <h4 class="mb-3">₫{{$newPro->full_price}}.000</h4>
+                                <h6 class="mb-3">₫{{$newPro->full_price}}.000</h6>
                                 <a href="#" class="btn border border-secondary rounded-pill px-3 text-danger add-to-cart" data-product-id="{{$newPro->product_id}}"><i class="fa fa-shopping-bag me-2 text-danger"></i> Chọn mua</a>
-
                             </div>
                         </div>
                     </div>                              

@@ -125,9 +125,7 @@ class OrderController extends Controller
         return back();
     }
 
-    public function confirmInvoice($order_id){
-        
-    }
+   
  
 }
 

@@ -3,6 +3,7 @@
     Feeship
 @endsection
 @section('content')
+    <div id="alert-container"></div>
     <div class="container">
         <div class="row">
             <div class="">

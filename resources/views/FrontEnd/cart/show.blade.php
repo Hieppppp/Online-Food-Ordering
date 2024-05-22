@@ -3,14 +3,15 @@
     Cart Show Item
 @endsection
 @section('content')
-        @if(Session::get('sms'))
+        <div class="alert-container"></div>
+        <!-- @if(Session::get('sms'))
             <div class="alert-container">
                 <div id="autoCloseAlert" class="alert alert-warning alert-dismissible fade show" role="alert">
                     <strong>{{Session::get('sms')}}</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
-        @endif 
+        @endif  -->
         <div class="container-fluid py-5">
             <div class="container py-5">
                 @if(session('cart') && count(session('cart')) > 0)
@@ -66,20 +67,20 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <!-- <button type="submit" class="btn btn-primary mt-2">Cập nhật</button> -->
                                         </form>
                                     </td>
+                                    
+
                                     <td>
                                         <p class="mb-0 mt-4 subtotal">{{ number_format($subtotal, 0, ',', '.') }}.000</p>
                                         <input type="hidden" value="{{$sum = $sum + $subtotal}}">
                                     </td>
 
                                     <td>
-                                        <a href="{{route('remove_cart',['id'=>$id])}}" onclick="return confirm('Bạn có muốn xóa không!');" type="button" class="btn btn-md rounded-circle bg-light border mt-4 cart_remove" >
+                                        <button type="button" class="btn btn-md rounded-circle bg-light border mt-4 cart_remove" data-id="{{$id}}">
                                             <i class="fa fa-times text-danger"></i>
-                                        </a>
+                                        </button>
                                     </td>
-                                
                                 </tr>
                                 
                             @endforeach

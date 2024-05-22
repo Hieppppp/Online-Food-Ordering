@@ -133,7 +133,7 @@
 .navbar .navbar-nav .nav-link.active,
 .fixed-top.bg-white .navbar .navbar-nav .nav-link:hover,
 .fixed-top.bg-white .navbar .navbar-nav .nav-link.active {
-    color: var(--bs-primary);
+    color: orange;
 }
 
 .navbar .dropdown-toggle::after {
@@ -179,7 +179,7 @@
 
 /*** Hero Header ***/
 .hero-header {
-    background: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1)), url(../img/hero-img.jpg);
+    background: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1)), url(../img/Untitled.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -204,10 +204,11 @@
     height: 48px;
     border-radius: 48px;
     border: 1px solid var(--bs-white);
-    background: var(--bs-primary);
+    background: rgb(253, 177, 111);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    
 }
 
 .carousel-control-next {

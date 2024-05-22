@@ -125,6 +125,7 @@
                         showAlert(response.message, 'success');
                         // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng
                         updateCartQuantity(response.cart_count);
+
                     },
                     error: function (xhr, status, error) {
                         console.error(xhr.responseText); // Hiển thị lỗi nếu có
@@ -132,6 +133,34 @@
                 });
             });
         });
+
+        //Xóa sản phẩm
+        $(document).ready(function(){
+            $('.cart_remove').on('click',function(e){
+                e.preventDefault();
+                var productId = $(this).data('id');
+                var token = "{{ csrf_token() }}";
+
+                $.ajax({
+                    type:'POST',
+                    url:'/remove-cart/' +productId,
+                    data:{
+                        id:productId,
+                        _token:token
+                    },
+                    success:function(response){
+                        showAlert(response.message, 'success');
+                        $('.cart-quantity').text(response.cart_count);
+                        $('tr[data-id="' + productId + '"]').remove();
+                    },
+                    error:function(xhr,status,error){
+                        console.error(xhr.responseText);
+                    }
+
+                })
+            })
+        });
+
 
         function showAlert(message, type) {
             var alertClass = 'alert-success'; // Mặc định là alert-success
@@ -143,7 +172,6 @@
                 '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
                 '</div>';
             $('.alert-container').html(alertHtml); // Chèn thông báo vào phần tử có class alert-container
-            
         }
 
         function updateCartQuantity(quantity) {

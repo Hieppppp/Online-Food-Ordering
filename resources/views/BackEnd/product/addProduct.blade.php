@@ -21,7 +21,6 @@
                         <form action="{{route('product_save')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-
                                 <div class="form-group col-md-6">
                                     <label class="fw-bold">Tên</label>
                                     <input type="text" class="form-control" name="product_name">

@@ -30,11 +30,11 @@
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-outline-info btn-block">Nhập Thông Tin</button>
                             </div>
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 @endsection

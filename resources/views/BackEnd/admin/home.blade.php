@@ -52,7 +52,6 @@
             <div class="page-header">
                 <div class="container-fluid">
                     @yield('content')
-
                 </div>
             </div>
         </div>
@@ -64,7 +63,7 @@
     <script src="{{asset('/admin')}}/vendor/popper.js/umd/popper.min.js"> </script>
     <script src="{{asset('/admin')}}/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="{{asset('/admin')}}/vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="{{asset('/admin')}}/vendor/chart.js/Chart.min.js"></script>
+    <!-- <script src="{{asset('/admin')}}/vendor/chart.js/Chart.min.js"></script> -->
     <script src="{{asset('/admin')}}/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="{{asset('/admin')}}/js/charts-home.js"></script>
     <script src="{{asset('/admin')}}/js/front.js"></script>
@@ -146,16 +145,19 @@
                 var province = $('.province').val();
                 var _token = '{{ csrf_token() }}';
                 var wards = $('.wards').val();
-                var comment = $('.comment').val();
-                // alert(city);
-                // alert(province);
-                // alert(wards);
-                // alert(fee_feeship);
+                var fee_feeship = $('.fee_feeship').val();
                 $.ajax({
                     url: '{{ route("insert_feeship") }}',
                     method: 'POST',
-                    data: { city: city, province: province, _token: _token,wards:wards,fee_feeship:fee_feeship },
-                    success: function(data){
+                    data: { 
+                        city: city,
+                        province: province,
+                        _token: _token,
+                        wards:wards,
+                        fee_feeship:fee_feeship
+                    },
+                    success: function(response){
+                        showAlert(response.message,"success");
                         fetch_feeship();
                     }
                 });
@@ -184,6 +186,18 @@
                 });
             });
         });
+
+        function showAlert(message, type) {
+            var alertClass = 'alert-success'; // Mặc định là alert-success
+            if (type === 'error') {
+                alertClass = 'alert-danger';
+            }
+            var alertHtml = '<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert">' +
+                '<strong>' + message + '</strong>' +
+                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+                '</div>';
+            $('.alert-container').html(alertHtml); // Chèn thông báo vào phần tử có class alert-container
+        }
     </script>
 
 

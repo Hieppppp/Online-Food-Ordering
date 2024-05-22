@@ -100,7 +100,6 @@ class FrontEndController extends Controller
         
         return view('FrontEnd.include.show_product', compact('categories', 'products','topProduct'));
     }
-    
     // Lây top những sản phẩm được mua nhiều nhất
     public function fetchTopProduct($limit){
         $sales = DB::table('products')
@@ -157,6 +156,11 @@ class FrontEndController extends Controller
         $save->save();
         return redirect()->back()->with('sms','Thành công!');
     }
+
+    //Lọc dữ liệu sản phẩm
+    public function fetchSort(Request $request){
+
+    }   
     
 
     

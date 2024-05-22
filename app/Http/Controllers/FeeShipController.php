@@ -60,13 +60,24 @@ class FeeShipController extends Controller
     }
 
     public function insert(Request $request){
+        // $data = $request->all();
+        // $fee_feeship = new FeeShip();
+        // $fee_feeship->fee_matp = $data['city'];
+        // $fee_feeship->fee_maqh = $data['province'];
+        // $fee_feeship->fee_xaid = $data['wards'];
+        // $fee_feeship->fee_feeship = $data['fee_feeship'];
+        // $fee_feeship->save();
         $data = $request->all();
+
+        // Tạo một đối tượng FeeShip mới và lưu vào cơ sở dữ liệu
         $fee_feeship = new FeeShip();
         $fee_feeship->fee_matp = $data['city'];
         $fee_feeship->fee_maqh = $data['province'];
         $fee_feeship->fee_xaid = $data['wards'];
         $fee_feeship->fee_feeship = $data['fee_feeship'];
         $fee_feeship->save();
+
+        return response()->json(['success' => true, 'message' => 'Thêm phí vận chuyển thành công']);
     }
 
     public function manage(Request $request){
@@ -95,7 +106,6 @@ class FeeShipController extends Controller
                             </td>
                         </tr>';
         }
-    
         $output .= '</tbody>
                     </table>
                 </div>';

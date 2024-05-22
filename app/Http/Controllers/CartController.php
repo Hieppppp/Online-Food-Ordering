@@ -45,16 +45,31 @@ class CartController extends Controller
         return view('FrontEnd.cart.show');
     }
 
+    // public function remove($id){
+    //     $cart = session()->get('cart', []);
+    //     // Kiểm tra xem sản phẩm có tồn tại trong giỏ hàng không
+    //     if(isset($cart[$id])) {
+    //         // Xóa sản phẩm khỏi giỏ hàng
+    //         unset($cart[$id]);
+    //         session()->put('cart', $cart);
+    //         return redirect()->back()->with('sms', 'Sản phẩm đã được xóa khỏi giỏ hàng!');
+    //     }
+    //     return redirect()->back()->with('error', 'Sản phẩm không tồn tại trong giỏ hàng!');
+    // }
     public function remove($id){
-        $cart = session()->get('cart', []);
-        // Kiểm tra xem sản phẩm có tồn tại trong giỏ hàng không
-        if(isset($cart[$id])) {
-            // Xóa sản phẩm khỏi giỏ hàng
+        $cart = session()->get('cart',[]);
+        
+        if(isset($cart[$id])){
             unset($cart[$id]);
-            session()->put('cart', $cart);
-            return redirect()->back()->with('sms', 'Sản phẩm đã được xóa khỏi giỏ hàng!');
+            session()->put('cart',$cart);
+            $cartCount = count($cart);
+            return response()->json([
+                'success'=>true,
+                'message'=>'Sản phẩm đã được xóa khỏi giỏ hàng!',
+                'cart_count'=>$cartCount
+            ]);
         }
-        return redirect()->back()->with('error', 'Sản phẩm không tồn tại trong giỏ hàng!');
+        return redirect()->back();
     }
 
     public function update(Request $request, $id){
@@ -66,6 +81,24 @@ class CartController extends Controller
         }
         return redirect()->back()->with('error', 'Sản phẩm không tồn tại trong giỏ hàng!');
     }
+
+    // public function update(Request $request,$id){
+    //     $cart = session()->get('cart',[]);
+
+    //     if(isset($cart[$id])){
+    //         $cart[$id]['quantity']= $request->quantity;
+    //         session()->put('cart',$cart);
+
+    //         return response()->json([
+    //             'success' => true,
+    //             'message' => 'Số lượng sản phẩm đã được cập nhật!',
+    //         ]);
+    //     }
+    //     return response()->json([
+    //         'error' => true,
+    //         'message' => 'Sản phẩm không tồn tại trong giỏ hàng!'
+    //     ]);
+    // }
 
     
    

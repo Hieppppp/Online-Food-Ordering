@@ -5,11 +5,11 @@
         <!-- Spinner End -->
         <!-- Navbar start -->
         <div class="container-fluid fixed-top">
-            <div class="container topbar bg-primary d-none d-lg-block">
+            <div class="container topbar bg-warning d-none d-lg-block">
                 <div class="d-flex justify-content-between">
                     <div class="top-info ps-2">
-                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">{{$contactset->address}}</a></small>
-                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">{{$contactset->email}}</a></small>
+                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-white"></i> <a href="#" class="text-white">{{$contactset->address}}</a></small>
+                        <small class="me-3"><i class="fas fa-envelope me-2 text-white"></i><a href="#" class="text-white">{{$contactset->email}}</a></small>
                     </div>
                     <div class="top-link pe-2">
                         <a href="#" class="text-white"><small class="text-white mx-2">Chính Sách Bảo Mật</small>/</a>
@@ -20,7 +20,7 @@
             </div>
             <div class="container px-0">
                 <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a href="{{route('home')}}" class="navbar-brand"><h1 class="text-primary display-6">Food Online</h1></a>
+                    <a href="{{route('home')}}" class="navbar-brand"><h1 class="display-6" style="color: orange">Food Online</h1></a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars text-primary"></span>
                     </button>
@@ -40,11 +40,11 @@
                         </div>
                         <div class="d-flex m-3 me-0">
                             <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal">
-                                <i class="fas fa-search text-primary"></i>
+                                <i class="fas fa-search text-warning"></i>
                             </button>
-                            <a href="" type="button" class="position-relative me-4 my-auto btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <a href="" type="button" class="position-relative me-4 my-auto btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#cartModal">
                                 <i class="fa fa-shopping-bag fa-2x"></i>
-                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1 cart-quantity" style="top: -1px; left: 25px; height: 20px; min-width: 20px;">{{ count((array) session('cart')) }}</span>
+                                <span class="position-absolute bg-warning rounded-circle d-flex align-items-center justify-content-center text-dark px-1 cart-quantity" style="top: -1px; left: 25px; height: 20px; min-width: 20px;">{{ count((array) session('cart')) }}</span>
                             </a>
 
                             <ul class="navbar-nav ml-auto">
@@ -152,7 +152,7 @@
                         @endif
                     </div>
                     <div class="modal-footer">
-                        <a href="{{route('cart_show')}}" class="btn btn-primary">Xem giỏ hàng</a>
+                        <a href="{{route('cart_show')}}" class="btn btn-warning">Xem giỏ hàng</a>
                     </div>
                 </div>
             </div>

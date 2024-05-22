@@ -7,7 +7,7 @@
     <div class="alert-container"></div>
         <div class="container-fluid fruite py-5">
             <div class="container py-5">
-                <h1 class="mb-4">Fresh fruits shop</h1>
+                <h1 class="mb-4">Danh Sách Sản Phẩm</h1>
                 <div class="row g-4">
                     <div class="col-lg-12">
                         <div class="row g-4">
@@ -21,14 +21,16 @@
                             <div class="col-xl-3">
                                 <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
                                     <label for="fruits">Sắp Xếp:</label>
-                                    <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3" form="fruitform">
-                                        <option value="volvo">Chọn giá</option>
-                                        <option value="volvo1">Gía < 100</option>
-                                        <option value="saab">Gía < 200</option>
-                                        <option value="opel">Gía < 300</option>
-                                        <option value="audi">Gía < 400</option>
-                                        <option value="audi">Gía < 500</option>
-                                    </select>
+                                    <form action="">
+                                        @csrf
+                                        <select id="sort" name="sort" class="border-0 form-select-sm bg-light me-3" form="fruitform">
+                                            <option value="{{Request::url()}}?sort_by=none">Sắp Xếp Theo</option>
+                                            <option value="{{Request::url()}}?sort_by=tang_dan">Giá Tăng Dần</option>
+                                            <option value="{{Request::url()}}?sort_by=giam_dan">Giá Giảm Dần</option>
+                                            <option value="{{Request::url()}}?sort_by=kytu_az">Lọc Tên Từ A Đến Z</option>
+                                            <option value="{{Request::url()}}?sort_by=kytuza">Lọc Tên Từ Z Đến A</option>
+                                        </select>
+                                    </form>
                                 </div>
                             </div>
                         </div>

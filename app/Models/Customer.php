@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Order;
 
 class Customer extends Model 
 {
@@ -37,4 +38,8 @@ class Customer extends Model
     }
 
     protected $table ='customers';
+
+    public function userOrders(){
+        return $this->hasMany(Order::class ,'id');
+    }
 }
